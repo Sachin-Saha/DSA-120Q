@@ -6,12 +6,17 @@ vector<int> productExceptSelf(vector<int>& nums){
     int n = nums.size();
     vector<int> ans(n,1);
 
-    // prefix => ans
+    // if array is empty then return empty answer
+    if(n==0){
+        return {};
+    }
+
+    // prefix[i] = product of all element to the left of i
     for(int i=1; i<n; i++){
         ans[i] *= ans[i-1] * nums[i-1];
     }
 
-    // suffix 
+    // suffix = product of element to the right
     int suffix = 1;
     for(int i = n-2; i>=0; i--){
         suffix *= nums[i+1];
