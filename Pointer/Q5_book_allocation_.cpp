@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 
@@ -10,8 +11,16 @@ bool isValid(vector<int> &arr, int n, int m, int maxAllowedPages){
         if(arr[i]> maxAllowedPages){
             return false;
         }
-        if(pages + arr[i] <= maxAllowedPages)
+
+
+        if(pages + arr[i] <= maxAllowedPages){
+            pages += arr[i];
+        }else{
+            students++;
+            pages = arr[i];
+        }
     }
+    return students > m ? false : true;
 }
 
 
@@ -23,7 +32,7 @@ int allocateBooks(vector<int> &arr, int n, int m){
         return -1;
     }
     int sum = 0;
-    fot(int i=0; i<n; i++){
+    for(int i=0; i<n; i++){
         sum += arr[i];
     }
 
@@ -46,7 +55,7 @@ int allocateBooks(vector<int> &arr, int n, int m){
 
 int main(){
     vector<int> arr = {15,17,20};
-    int n = 4, m= 5;
+    int n = arr.size(), m= 2;
 
     cout<<allocateBooks(arr, n, m)<<endl;
     return 0;
