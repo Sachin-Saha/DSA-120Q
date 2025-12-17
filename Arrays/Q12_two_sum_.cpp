@@ -41,6 +41,7 @@ int main(){
 
     vector<int> ans = twoSum(arr,target); // brute force approach
     vector<int> ans1 = twoSumUsingMap(arr,target); // map approach 
+    
     cout<<ans[0]<<","<<ans[1]; // ans of brute force approach
     cout<<endl;
     cout<<ans1[0]<<","<<ans1[1]; // ans of map approach
