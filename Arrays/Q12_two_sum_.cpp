@@ -37,7 +37,7 @@ vector<int> twoSumUsingMap(vector<int> &arr, int target){
 }
 
 // better approach using two pointer 
-// dont use this approach because it will not work in some cases like for this arra = {3,2,4} == 6
+// dont use this approach because it will not work in some cases like for this array = {3,2,4} == 6
 vector<int> twoSumTwoPointer(vector<int>& arr, int target) {
     sort(arr.begin(), arr.end());   
 
