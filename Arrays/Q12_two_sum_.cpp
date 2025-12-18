@@ -37,7 +37,8 @@ vector<int> twoSumUsingMap(vector<int> &arr, int target){
 }
 
 // better approach using two pointer 
-vector<int> twoSum(vector<int>& arr, int target) {
+// dont use this approach because it will not work in some cases like for this arra = {3,2,4} == 6
+vector<int> twoSumTwoPointer(vector<int>& arr, int target) {
     sort(arr.begin(), arr.end());   
 
     int left = 0, right = arr.size() - 1;
@@ -46,7 +47,7 @@ vector<int> twoSum(vector<int>& arr, int target) {
         int sum = arr[left] + arr[right];
 
         if (sum == target) {
-            return {arr[left], arr[right]};
+            return {left, right};
         } 
         else if (sum < target) {
             left++;
@@ -65,12 +66,12 @@ int main(){
 
     vector<int> ans = twoSum(arr,target); // brute force approach
     vector<int> ans1 = twoSumUsingMap(arr,target); // map approach 
-    vector<int> ans2 = twoSum(arr,target); // map approach 
+    vector<int> ans2 = twoSumTwoPointer(arr,target); // map approach 
     
-    cout<<ans[0]<<","<<ans[1]; // ans of brute force approach
+    cout<<"Ans of brute force approach : "<<ans[0]<<","<<ans[1]; // ans of brute force approach
     cout<<endl;
-    cout<<ans1[0]<<","<<ans1[1]; // ans of map approach
+    cout<<"Ans of map approach : "<<ans1[0]<<","<<ans1[1]; // ans of map approach
     cout<<endl;
-    cout<<ans1[0]<<","<<ans2[1]; // ans of two pointer approach
+    cout<<"Ans of two pointer approach : "<<ans1[0]<<","<<ans2[1]; // ans of two pointer approach
 
 }
